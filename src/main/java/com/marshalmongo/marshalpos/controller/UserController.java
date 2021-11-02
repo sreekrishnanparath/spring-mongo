@@ -10,10 +10,7 @@ import com.marshalmongo.marshalpos.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,8 +20,8 @@ import java.util.List;
 public class UserController {
 
 
-    @Autowired
-    UserService userService;
+    //@Autowired
+    //UserService userService;
 
     @Autowired
     ItemRepository groceryItemRepo;
@@ -40,26 +37,33 @@ public class UserController {
     }
 
 
-    @GetMapping("/{userId}")
-    private ResponseEntity<User> getUserById(@PathVariable String userId){
-
-        System.out.println("PathVariable userId##"+userId);
-        User user = userRepository.findFirstByusername(userId);
-        //System.out.println("user##"+user.getUsername());
-        //if(user==null){
-        //    throw new NoDataFoundException("No User Found");
-        //}
-        return new ResponseEntity<User>(user, HttpStatus.FOUND);
+    @GetMapping("/username/{username}")
+    private ResponseEntity<User> getUserByusername(@PathVariable String username){
+        User user = userRepository.findFirstByusername(username);
+        if(user==null){
+            throw new NoDataFoundException("No User Found");
+            //return new ResponseEntity<User>(user, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    @GetMapping("/userlist")
-    private ResponseEntity<List<User>> getAllUsers(){
-        List<User> userList = userService.getAllUser();
-        if(userList==null){
+    @PostMapping("/userId/{userId}")
+    private ResponseEntity<User> getUserByuserId(@PathVariable String userId){
+        User user = userRepository.findFirstByuserId(userId);
+        if(user==null){
             throw new NoDataFoundException("No User Found");
         }
-        return new ResponseEntity<List<User>>(userList, HttpStatus.FOUND);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
+
+    //@GetMapping("/userlist")
+    //private ResponseEntity<List<User>> getAllUsers(){
+//        List<User> userList = userService.getAllUser();
+//        if(userList==null){
+//            throw new NoDataFoundException("No User Found");
+//        }
+//        return new ResponseEntity<List<User>>(userList, HttpStatus.FOUND);
+   // }
 
 
 

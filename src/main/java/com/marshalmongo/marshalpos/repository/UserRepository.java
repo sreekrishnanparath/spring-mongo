@@ -10,8 +10,9 @@ public interface UserRepository extends MongoRepository<User, String> {
 
 
 
-    public User findFirstByusername(String userId);
+    public User findFirstByusername(String username);
 
+    public User findFirstByuserId(String userId);
 
     @Query("SELECT * FROM USER")
     List<User> findAll();
