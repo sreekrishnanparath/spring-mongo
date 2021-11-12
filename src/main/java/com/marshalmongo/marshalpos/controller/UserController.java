@@ -49,6 +49,7 @@ public class UserController {
 
     @PostMapping("/userId/{userId}")
     private ResponseEntity<User> getUserByuserId(@PathVariable String userId){
+        System.out.println("userId##"+userId);
         User user = userRepository.findFirstByuserId(userId);
         if(user==null){
             throw new NoDataFoundException("No User Found");
