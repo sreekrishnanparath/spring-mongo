@@ -3,7 +3,7 @@ package com.marshalmongo.marshalpos.services;
 
 
 import com.marshalmongo.marshalpos.dao.UserDAO;
-import com.marshalmongo.marshalpos.model.User;
+import com.marshalmongo.marshalpos.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

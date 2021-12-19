@@ -4,7 +4,7 @@ package com.marshalmongo.marshalpos.services;
 
 
 
-import com.marshalmongo.marshalpos.model.User;
+import com.marshalmongo.marshalpos.bean.User;
 
 import java.util.List;
 

@@ -1,9 +1,11 @@
-package com.marshalmongo.marshalpos.model;
+package com.marshalmongo.marshalpos.bean;
+
 
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 
 @Document("User")
@@ -17,6 +19,17 @@ public class User {
 
     @Indexed(unique = true)
     private String username;
+
+
+    private Parameters parameters;
+
+    public Parameters getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(Parameters parameters) {
+        this.parameters = parameters;
+    }
 
     public String getId() {
         return id;
@@ -42,10 +55,11 @@ public class User {
         this.username = username;
     }
 
-    public User(String id, String userId, String username) {
+    public User(String id, String userId, String username,Parameters parameters) {
         super();
         this.id = id;
         this.userId = userId;
         this.username = username;
+        this.parameters = parameters;
     }
 }

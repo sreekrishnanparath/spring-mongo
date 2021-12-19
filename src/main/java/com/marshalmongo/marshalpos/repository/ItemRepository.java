@@ -1,6 +1,6 @@
 package com.marshalmongo.marshalpos.repository;
 
-import com.marshalmongo.marshalpos.model.GroceryItem;
+import com.marshalmongo.marshalpos.bean.GroceryItem;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
