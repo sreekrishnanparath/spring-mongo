@@ -60,9 +60,9 @@ public class UserController {
 
         //ResponseEntity<Parameters> responseEntity = new RestTemplate().getForEntity("http://localhost:8081/marshalpadmin/parameters/{applicationCode}", Parameters.class,uriVariables);
         //Parameters parameters  = responseEntity.getBody();
-        Parameters parameters  = marshalAdminProxy.getParameters("m123");
-        System.out.println("parameters##"+parameters);
-        user.setParameters(parameters);
+        //Parameters parameters  = marshalAdminProxy.getParameters("m123");
+        //System.out.println("parameters##"+parameters);
+        //user.setParameters(parameters);
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
