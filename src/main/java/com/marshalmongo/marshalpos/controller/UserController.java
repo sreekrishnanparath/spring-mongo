@@ -53,7 +53,8 @@ public class UserController {
         System.out.println("userId##"+userId);
         User user = userRepository.findFirstByuserId(userId);
         if(user==null){
-            throw new NoDataFoundException("No User Found");
+            //throw new NoDataFoundException("No User Found");
+            return new ResponseEntity<User>(user, HttpStatus.NOT_FOUND);
         }
         //HashMap<String,String> uriVariables = new HashMap<>();
         //uriVariables.put("applicationCode","m123");
