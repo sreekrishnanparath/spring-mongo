@@ -21,6 +21,9 @@ public class User {
     @Indexed(unique = true)
     private String username;
 
+    public String branchId;
+
+
     private Date expiryDate;
 
     private Parameters parameters;
@@ -65,12 +68,21 @@ public class User {
         this.expiryDate = expiryDate;
     }
 
-    public User(String id, String userId, String username, Parameters parameters,Date expiryDate) {
+    public String getBranchId() {
+        return branchId;
+    }
+
+    public void setBranchId(String branchId) {
+        this.branchId = branchId;
+    }
+
+    public User(String id, String userId, String username, Parameters parameters, Date expiryDate,String branchId) {
         super();
         this.id = id;
         this.userId = userId;
         this.username = username;
         this.parameters = parameters;
         this.expiryDate = expiryDate;
+        this.branchId = branchId;
     }
 }
