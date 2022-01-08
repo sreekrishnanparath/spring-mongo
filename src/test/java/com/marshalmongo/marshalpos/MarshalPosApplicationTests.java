@@ -9,6 +9,7 @@ class MarshalPosApplicationTests {
 	@Test
 	void contextLoads() {
 		System.out.println("in test");
+		System.out.println("Second log");
 	}
 
 }
